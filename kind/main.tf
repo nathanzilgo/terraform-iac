@@ -9,6 +9,12 @@ resource "kind_cluster" "c1" {
 
     node {
       role = "control-plane"
+
+      extra_port_mappings {
+        container_port = 80
+        host_port      = 80
+        protocol       = "TCP"
+      }
     }
     node {
       role = "worker"
